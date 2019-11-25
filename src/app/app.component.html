@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-warning-alert></app-warning-alert>
+      <app-success-alert></app-success-alert>
+      <hr />
+      <input class="form-control" [(ngModel)]="username" />
+      <p>User name is {{ username }} !!!</p>
+      <button
+        class="btn btn-primary"
+        (click)="onReset()"
+        [disabled]="username === ''"
+      >
+        Reset
+      </button>
+      <hr />
+      <button class="btn btn-primary" (click)="onToggle($event)">
+        Display Details
+      </button>
+      <p *ngIf="isPresent">this is a dummy text</p>
+      <div
+        *ngFor="let content of contents; let i = index"
+        [ngStyle]="{ backgroundColor: i > 4 ? 'blue' : 'transparent' }"
+        [ngClass]="{ whiteClr: i > 4 }"
+      >
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>
